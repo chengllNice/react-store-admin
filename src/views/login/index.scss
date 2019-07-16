@@ -1,0 +1,74 @@
+
+.login{
+  height: 100%;
+  min-height: 500px;
+  background: url("../../assets/images/login-bg.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  .login-header{
+    justify-content: space-between;
+    padding: 20px 50px;
+    .login-header-logo{
+      color: #ffffff;
+      font-size: 26px;
+    }
+    .login-header-href{
+      a:hover{
+        color: #dddddd;
+      }
+    }
+    a{
+      color: #ffffff;
+    }
+  }
+  .login-content{
+    padding: 20px 50px;
+    justify-content: flex-end;
+    flex: 1;
+    .login-form{
+      width: 400px;
+      overflow: hidden;
+      transform: translateY(-30%);
+      border-radius: 2px;
+      .login-form-title{
+        width: 100%;
+        padding: 20px;
+        justify-content: space-between;
+        color: #ffffff;
+        background: rgba(0,0,0,0.4);
+        color: rgba(255,255,255,0.8);
+        i{
+          font-size: 24px;
+          color: rgba(255,255,255,0.3);
+        }
+      }
+      .login-form-content{
+        width: 100%;
+        padding: 20px;
+        background: rgba(0,0,0,0.3);
+        &>*{
+          margin: 10px 0;
+        }
+        input{
+          background-color: rgba(255, 255, 255, 0.2);
+          border: none;
+          color: rgba(255,255,255,0.8);
+          &::-webkit-input-placeholder{
+            color: rgba(255,255,255,0.8);
+          }
+        }
+        .ant-input-suffix{
+          i{
+            color: #cccccc;
+          }
+        }
+      }
+
+      .login-button{
+        width: 100%;
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+
+.c-table{
+  .ant-table{
+    border-radius: 2px;
+  }
+  .ant-table-body{
+    margin: 0!important;
+  }
+  .c-table-column{
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  table thead, .ant-table .ant-table-head{
+    th{
+      background-color: #fafafa!important;
+      font-weight: bold;
+      color: rgba(0,0,0,0.7);
+      font-size: 13px;
+    }
+  }
+}
+
+//表格头部展示的筛选项样式
+.filter-head{
+  justify-content: start;
+  margin: 10px 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+  .filter-label{
+    justify-content: start;
+    width: 80px;
+    i{
+      font-size: 13px;
+    }
+    span{
+      margin-left: 5px;
+      font-size: 13px;
+    }
+  }
+  .filter-content{
+    justify-content: start;
+    flex-wrap: wrap;
+    flex: 1;
+    .filter-head-item{
+      margin: 5px 0;
+      margin-right: 20px;
+      .label{
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .filter-tag{
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+//表格下拉的筛选项样式
+.table-filter-dropdown-list{
+  font-size: 12px;
+  border-radius: 2px;
+  .table-filter-item{
+    cursor: pointer;
+    span{
+      font-size: 12px;
+    }
+    &:hover{
+      background-color: rgba(30, 159, 255, 0.2);
+    }
+  }
+
+  .table-filter-dropdown-footer{
+    width: 100%;
+    justify-content: flex-end;
+    &>*{
+      margin-left: 3px;
+    }
+  }
+}

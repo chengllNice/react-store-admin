@@ -1,0 +1,39 @@
+@import "@/assets/css/var.scss";
+
+.header{
+  height: $header-height;
+  background: $header-background;
+  .logo{
+    width: 200px;
+    font-size: 18px;
+    padding: 0 20px;
+  }
+  .info{
+    padding-right: 20px;
+    flex: 1;
+    justify-content: space-between;
+    .collapsed{
+      background-color: rgba(255,255,255,0.1);
+      padding: 8px;
+      border-radius: 2px;
+      cursor: pointer;
+      &:hover{
+        background-color: rgba(255,255,255,0.3);
+      }
+      i{
+        font-size: 16px;
+      }
+    }
+    .user-info{
+      color: $text-color-white;
+      .ant-dropdown-trigger{
+        display: inline-block;
+        height: $header-height;
+        line-height: $header-height;
+      }
+      .user-name{
+        margin-right: 8px;
+      }
+    }
+  }
+}

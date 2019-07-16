@@ -1,0 +1,19 @@
+
+.auth-manage-list{
+  .filter-wrap{
+    justify-content: space-between;
+    .filter-left{
+      justify-content: start;
+      &>*{
+        margin-right: 5px;
+      }
+    }
+    .filter-right{
+      justify-content: end;
+      &>*{
+        margin-left: 5px;
+      }
+    }
+  }
+
+}

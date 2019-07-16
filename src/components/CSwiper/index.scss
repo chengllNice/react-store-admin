@@ -1,0 +1,51 @@
+
+.c-swiper{
+  width: 100%;
+  .c-swiper-container{
+    width: 100%;
+    .swiper-wrapper{
+      .swiper-slide{
+        background-color: #ffffff;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .swiper-button-prev{
+      background-image: none;
+      i{
+        font-size: 66px;
+        position: absolute;
+        top: -13px;
+        left: 0;
+        color: #888888;
+      }
+      &:hover{
+        i{
+          color: #999999;
+        }
+      }
+    }
+    .swiper-button-next{
+      background-image: none;
+      i{
+        font-size: 66px;
+        position: absolute;
+        top: -12px;
+        right: 0;
+        color: #888888;
+      }
+      &:hover{
+        i{
+          color: #999999;
+        }
+      }
+    }
+
+    .swiper-pagination{
+
+    }
+  }
+}

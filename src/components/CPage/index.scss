@@ -1,0 +1,11 @@
+@import "@/assets/css/var.scss";
+.c-page{
+  margin: 10px 0;
+  .ant-pagination-item-active{
+    background-color: $main-base-primary-color;
+    border-radius: 2px;
+    a{
+      color: $text-color-white!important;
+    }
+  }
+}

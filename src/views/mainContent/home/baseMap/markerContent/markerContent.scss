@@ -1,0 +1,38 @@
+
+.marker-content{
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 2px;
+  overflow: hidden;
+  min-width: 200px;
+  .marker-content-title{
+    padding: 5px 10px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 12px;
+    justify-content: space-between;
+    span{
+      padding-right: 20px;
+    }
+    i{
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
+  .marker-content-body{
+    padding: 10px;
+    .content-item{
+      justify-content: start;
+      padding: 2px 0;
+      font-size: 12px;
+      .label{
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .marker-content-footer{
+    border-top: 1px solid #eeeeee;
+    text-align: right;
+    padding: 5px 10px;
+  }
+}

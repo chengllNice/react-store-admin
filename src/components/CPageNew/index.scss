@@ -1,0 +1,40 @@
+
+@import "@/assets/css/var.scss";
+
+.c-page-new{
+  //max-width: 600px;
+  //min-width: 600px;
+  .c-page-new-item{
+    .c-page-new-item-title{
+      justify-content: start;
+      font-weight: bold;
+      font-size: 13px;
+      height: 40px;
+      line-height: 40px;
+      margin-bottom: 20px;
+      .title-before-icon{
+        display: inline-block;
+        width: 4px;
+        height: 15px;
+        background: $main-base-primary-color;
+        border-radius: 2px;
+        margin-right: 5px;
+      }
+    }
+    .c-page-form{
+      justify-content: space-between;
+      .c-page-form-item{
+        flex: 1;
+      }
+    }
+  }
+  .c-page-footer-button{
+    background-color: #ffffff;
+    padding: 15px 30px;
+    border-top: 1px solid #eaeaea;
+    margin-top: 60px;
+    &>*{
+      margin-right: 10px;
+    }
+  }
+}

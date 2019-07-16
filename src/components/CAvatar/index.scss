@@ -1,0 +1,33 @@
+
+
+.c-avatar{
+  justify-content: start;
+  align-items: start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+  .c-avatar-img{
+    width: 80px;
+    height: 80px;
+    flex: none;
+    border: 1px solid #eeeeee;
+    border-radius: 2px;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  .c-avatar-info{
+    padding: 5px 0;
+    p{
+      margin: 0;
+    }
+    .c-avatar-title{
+      font-weight: bold;
+    }
+    .c-avatar-rate{
+      font-size: 14px;
+    }
+    .c-avatar-description{
+      color: #888888;
+      font-size: 12px;
+    }
+  }
+}

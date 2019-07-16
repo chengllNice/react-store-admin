@@ -1,0 +1,79 @@
+
+.c-input, .c-input-number, .c-select, .ant-select, .ant-select-selection, .c-date-picker{
+  width: 100%;
+  border-radius: 2px!important;
+  font-size: 12px!important;
+  &.ant-input, .ant-input{
+    border-radius: 2px!important;
+    font-size: 12px!important;
+  }
+}
+
+.ant-input-number.c-input-number{
+  width: 100%;
+}
+
+.ant-input-search{
+  .ant-input{
+    border-radius: 2px;
+  }
+}
+
+.no-show-number-step{
+  .ant-input-number-handler-wrap{
+    display: none;
+  }
+}
+
+.c-select {
+  min-width: 150px;
+}
+.ant-select-dropdown{
+  font-size: 13px;
+  .ant-select-dropdown-menu{
+    font-size: 13px;
+  }
+}
+
+.c-upload{
+  .ant-upload-text{
+    font-size: 12px;
+  }
+}
+
+
+.c-form{
+  .ant-form label{
+    font-size: 13px;
+  }
+  .c-form-content{
+    justify-content: start;
+    .c-form-label{
+      width: 120px;
+      text-align: right;
+      margin-right: 10px;
+      font-size: 12px;
+      .required-icon{
+        color: red;
+      }
+    }
+    .c-form-content-form{
+      flex: 1;
+    }
+  }
+  .c-form-error-info{
+    height: 15px;
+    color: red;
+    padding-left: 130px;
+    font-size: 12px;
+  }
+  .c-form-none-label{
+    padding-left: 0;
+  }
+  .c-form-item{
+    margin-bottom: 0;
+  }
+}
+
+
+

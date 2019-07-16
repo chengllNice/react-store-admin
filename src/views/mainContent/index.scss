@@ -1,0 +1,28 @@
+
+.main-content{
+  height: 100%;
+  overflow: auto;
+  .main-content-scroll{
+    height: 100%;
+    position: relative;
+    //min-width: 1000px;
+  }
+  .main-breadcrumb{
+    background-color: #ffffff;
+    height: 40px;
+    justify-content: start;
+    padding: 0 10px;
+    span{
+      font-size: 12px;
+    }
+  }
+  .main-content-body{
+    padding: 10px;
+    //height: calc(100% - 40px);
+    .main-content-body-card{
+      .ant-card-body{
+        padding: 15px;
+      }
+    }
+  }
+}

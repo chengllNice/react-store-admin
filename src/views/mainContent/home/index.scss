@@ -1,0 +1,13 @@
+
+.home{
+  .home-filter{
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    .search-input{
+      width: 200px;
+    }
+  }
+  .home-base-map{
+    border: 1px solid #eeeeee;
+  }
+}

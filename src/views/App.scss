@@ -1,0 +1,14 @@
+@import "@/assets/css/var.scss";
+.app{
+  background-color: $main-background-color;
+  height: 100%;
+  .app-content{
+    height: calc(100% - 45px);
+    align-items: start;
+    .app-mainContent{
+      flex: 1;
+      height: 100%;
+      overflow: auto;
+    }
+  }
+}

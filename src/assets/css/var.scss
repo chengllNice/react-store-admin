@@ -1,0 +1,60 @@
+
+
+
+/*BACKGDROUND*/
+$main-background-color: #f1f1f1;
+$main-base-color: rgba(0, 150, 136, 1);
+$main-base-primary-color: rgba(30, 159, 255, 1);
+
+/*TEXT COLOR*/
+$text-color-base: #666666;
+$text-color-white: #ffffff;
+$text-color-label: #333333;
+
+/*BUTTON COLOR*/
+$button-primary-background-color: rgba(30, 159, 255, 1);
+$button-primary-hover-background-color: rgba(30, 159, 255, 0.8);
+$button-danger-background-color: rgba(255, 87, 34, 1);
+$button-danger-hover-background-color: rgba(255, 87, 34, 0.8);
+$button-c-success-background-color: rgba(0, 150, 136, 1);
+$button-c-success-hover-background-color: rgba(0, 150, 136, 0.8);
+$button-warning-background-color: rgba(255, 128, 82, 1);
+$button-warning-hover-background-color: rgba(255, 128, 82, 0.8);
+$button-success-background-color: rgba(103, 194, 58, 1);
+$button-success-hover-background-color: rgba(103, 194, 58, 0.8);
+$button-default-background-color: rgba(255, 255, 255, 1);
+$button-default-hover-background-color: rgba(255, 255, 255, 1);
+$button-disabled-background-color: rgba(245, 245, 245, 1);
+$button-primary-text-color: $text-color-white;
+$button-danger-text-color: $text-color-white;
+$button-warning-text-color: $text-color-white;
+$button-success-text-color: $text-color-white;
+$button-c-success-text-color: $text-color-white;
+$button-default-text-color: $text-color-base;
+$button-disabled-text-color: $text-color-base;
+$button-hover-text-color: rgba(30, 159, 255, 1);
+$button-border-radius: 2px;
+$button-primary-border-color: rgba(30, 159, 255, 1);
+$button-danger-border-color: rgba(255, 87, 34, 1);
+$button-success-border-color: rgba(103, 194, 58, 1);
+$button-c-success-border-color: rgba(0, 150, 136, 1);
+$button-warning-border-color: rgba(255, 128, 82, 1);
+$button-default-border-color: #d9d9d9;
+$button-border-hover-color: rgba(30, 159, 255, 1);
+$button-size-small: 28px;
+$button-size-default: 30px;
+$button-size-larger: 32px;
+$button-size-small-font-size: 12px;
+$button-size-default-font-size: 12px;
+$button-size-larger-font-size: 13px;
+
+
+
+/*HEAD STYLE*/
+$header-background: linear-gradient(to left,rgba(30, 144, 255, 1), rgba(0, 206, 209, 1)) !important;
+$header-height: 45px;
+
+/*LEFTNAV STYLE*/
+$left-nav-background-color: #e6f3fd;
+$left-nav-active-background-color: linear-gradient(to left,rgba(30, 144, 255, 1), rgba(0, 206, 209, 1)) !important;
+$left-nav-active-border-color: rgba(51, 51, 51, 0.73);

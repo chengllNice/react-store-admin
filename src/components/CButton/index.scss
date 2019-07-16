@@ -1,0 +1,111 @@
+
+@import "@/assets/css/var.scss";
+
+.c-button{
+  display: inline-block;
+  .c-button-base{
+    border-radius: $button-border-radius;
+    box-shadow: none;
+    border: 1px solid $button-default-border-color;
+    height: $button-size-default;
+    font-size: $button-size-default-font-size;
+    transition: all 0.5s;
+  }
+
+  .c-button-icon{
+    span{
+      margin-left: 5px;
+    }
+  }
+
+  .c-button-default{
+    border-color: $button-default-border-color;
+    background-color: $button-default-background-color;
+    color: $button-default-text-color;
+    &:hover{
+      color: $button-hover-text-color;
+      border-color: $button-border-hover-color;
+      background-color: $button-default-hover-background-color;
+    }
+  }
+
+  .c-button-primary{
+    border-color: $button-primary-border-color;
+    background-color: $button-primary-background-color;
+    color: $button-primary-text-color;
+    &:hover{
+      background-color: $button-primary-hover-background-color;
+    }
+  }
+  .c-button-danger{
+    border-color: $button-danger-border-color;
+    background-color: $button-danger-background-color;
+    color: $button-danger-text-color;
+    &:hover{
+      background-color: $button-danger-hover-background-color;
+    }
+  }
+  .c-button-success{
+    border-color: $button-success-border-color;
+    background-color: $button-success-background-color;
+    color: $button-success-text-color;
+    &:hover{
+      background-color: $button-success-hover-background-color;
+    }
+  }
+
+  .c-button-c-success{
+    border-color: $button-c-success-border-color;
+    background-color: $button-c-success-background-color;
+    color: $button-c-success-text-color;
+    &:hover{
+      background-color: $button-c-success-hover-background-color;
+    }
+  }
+
+  .c-button-warning{
+    border-color: $button-warning-border-color;
+    background-color: $button-warning-background-color;
+    color: $button-warning-text-color;
+    &:hover{
+      background-color: $button-warning-hover-background-color;
+    }
+  }
+
+  .c-button-disabled{
+    border-color: $button-default-border-color;
+    background-color: $button-disabled-background-color;
+    color: $button-disabled-text-color;
+    cursor: not-allowed;
+    &:hover{
+      border-color: $button-default-border-color;
+      background-color: $button-disabled-background-color;
+      color: $button-disabled-text-color;
+    }
+  }
+
+  .c-button-text{
+    border: none;
+    padding: 0;
+    height: auto;
+    display: inline;
+    background-color: transparent;
+    color: $button-primary-background-color;
+    --antd-wave-shadow-color: none;
+    &:hover{
+      color: $button-primary-hover-background-color;
+    }
+    &:active,&:focus{
+      outline: 0;
+    }
+  }
+
+  .c-button-size-small{
+    height: $button-size-small;
+    font-size: $button-size-small-font-size;
+  }
+  .c-button-size-larger{
+    height: $button-size-larger;
+    font-size: $button-size-larger-font-size;
+  }
+}
