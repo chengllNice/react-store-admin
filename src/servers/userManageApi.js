@@ -10,6 +10,8 @@ export const insertUserList = (data) => ajax_post('/fe/userManage/userList/inser
 export const editUserList = (data) => ajax_post('/fe/userManage/userList/edit/', data);
 // 获取商家用户详情
 export const detailUserList = (data) => ajax_get('/fe/userManage/userList/detail/', data);
+// 激活停用
+export const editActiveUserList = (data) => ajax_post('/fe/userManage/userList/active/', data);
 
 
 // 获取管理员用户列表

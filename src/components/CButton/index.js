@@ -18,7 +18,7 @@ class CButton extends Component {
     const {icon, type, size, disabled, className, authId, ...props} = this.props;
     const iconRender = icon.includes('fa') ? <i className={`fa ${icon}`}></i> : <Icon type={icon}/>;
     return (
-      <div className={`c-button ${className}`}>
+      <div className={`c-button ${props.block ? 'c-button-block' : ''} ${className?className:''}`}>
         <Button
           className={`c-button-base c-button-${type} c-button-size-${size} ${disabled ? 'c-button-disabled' : ''} ${icon ? 'c-button-icon' : ''}` }
           {...props}

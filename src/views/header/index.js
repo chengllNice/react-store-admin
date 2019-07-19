@@ -7,7 +7,7 @@ import { Menu, Dropdown, Icon } from 'antd';
 import {menuList} from './data'
 import { setStorage} from "@/utils";
 import './index.scss'
-import { collapsedToggle, setWindowInfo, setUserInfo} from "../../redux/common/action";
+import { collapsedToggle, setWindowInfo, setUserInfo, setCurrentTheme} from "../../redux/common/action";
 import config from '@/config'
 
 class Header extends Component{
@@ -16,11 +16,34 @@ class Header extends Component{
     super(props);
     this.collapsedChange = this.collapsedChange.bind(this);
     this.menuClick = this.menuClick.bind(this);
+    this.themeChange = this.themeChange.bind(this);
   }
 
   state = {
     menuList: [],
-    time: null
+    time: null,
+    themeMenuList: [
+      [
+        {
+          id: 'default',
+          color: '#e6f3fd',
+        },
+        {
+          id: 'deongaree',
+          color: '#344058',
+        }
+      ],
+      [
+        {
+          id: 'green',
+          color: '#009688',
+        },
+        {
+          id: 'red',
+          color: '#cc0000',
+        }
+      ]
+    ]
   };
 
   collapsedChange(){
@@ -44,7 +67,6 @@ class Header extends Component{
   }
 
   menuClick(data){
-    console.log(data,'===da')
     if(data.id === 'loginOut'){
       // 退出
       setStorage('userInfo', null);
@@ -52,7 +74,16 @@ class Header extends Component{
       this.props.history.push({
         pathname: '/login'
       })
+    }else if(data.id === 'personal'){
+      this.props.history.push({
+        pathname: '/personal'
+      })
     }
+  }
+
+  themeChange(data){
+    setStorage('theme', data.id);
+    this.props.setCurrentTheme(data.id);
   }
 
   componentWillMount(){
@@ -67,14 +98,30 @@ class Header extends Component{
 
 
   render(){
-    const { name} = this.props.userInfo || {};
+    const { name, avatar} = this.props.userInfo || {};
+    const url = avatar ? avatar.url : '';
 
     const menu = (
       <Menu>
         {
           this.state.menuList.map((item, index)=>
             <Menu.Item key={index}>
-              <CButton type='text' onClick={() => this.menuClick(item)}>{item.name}</CButton>
+              <CButton type='text' block onClick={() => this.menuClick(item)}>{item.name}</CButton>
+            </Menu.Item>
+          )
+        }
+      </Menu>);
+
+    const themeMenu = (
+      <Menu>
+        {
+          this.state.themeMenuList.map((item, index)=>
+            <Menu.Item key={index}>
+              <div className='flex themeItem'>
+                {
+                  item.map(i=><div className='themeItemColor' key={i.id} style={{'backgroundColor': i.color}} onClick={() => this.themeChange(i)} />)
+                }
+              </div>
             </Menu.Item>
           )
         }
@@ -88,10 +135,28 @@ class Header extends Component{
             <Icon type="menu-fold" />
           </div>
 
-          <div className='user-info'>
-            <Dropdown overlay={menu}>
-              <span><span className='user-name'>{name}</span><Icon type="down" /></span>
-            </Dropdown>
+
+          <div className='flex info-right'>
+
+            <div className='theme-config' ref='themeConfig'>
+              <Dropdown overlay={themeMenu} getPopupContainer={() => this.refs.themeConfig}>
+                <span>
+                  <span className='theme-config-name'>主题皮肤</span>
+                  <Icon type="down" />
+                </span>
+              </Dropdown>
+            </div>
+
+            <div className='user-info' ref='userInfo'>
+              <Dropdown overlay={menu} getPopupContainer={() => this.refs.userInfo}>
+                <span>
+                  <img className='user-avatar' src={url} alt=""/>
+                  <span className='user-name'>
+                    {name}</span>
+                  <Icon type="down" />
+                </span>
+              </Dropdown>
+            </div>
           </div>
         </div>
       </header>
@@ -112,6 +177,7 @@ const mapDispatchToProps = (dispatch) => {
     collapsedToggle: bindActionCreators(collapsedToggle, dispatch),
     setWindowInfo: bindActionCreators(setWindowInfo, dispatch),
     setUserInfo: bindActionCreators(setUserInfo, dispatch),
+    setCurrentTheme: bindActionCreators(setCurrentTheme, dispatch),
   };
 };
 

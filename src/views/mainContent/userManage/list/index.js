@@ -10,12 +10,13 @@ import CTable from '@/components/CTable'
 import CInput from '@/components/CForm/CInput'
 import CButton from '@/components/CButton'
 import CBaseComponent from '@/components/CBaseComponent'
+import CSwitch from '@/components/CForm/CSwitch'
 import { setReload} from "@/redux/common/action";
 import { tableData} from './data'
 import './index.scss'
 import _ from 'lodash'
 
-import { getUserList, delUserList} from "@/servers/userManageApi";
+import { getUserList, delUserList, editActiveUserList} from "@/servers/userManageApi";
 import { getUserBussinesRoleList} from "@/servers/commonApi";
 
 @CBaseComponent
@@ -70,6 +71,7 @@ class UserManageList extends Component{
     });
     getUserList(getData).then(res=>{
       let data = res.data.list;
+      console.log(data,'ddd')
       let total = res.data.pagination.total;
       this.setState({
         dataSource: data,
@@ -185,6 +187,17 @@ class UserManageList extends Component{
     }, () => this.removeHandler());
   }
 
+  // 激活停用用户
+  editActiveChange(value, record){
+    let data = {
+      id: record.id,
+      isActive: value
+    };
+    editActiveUserList(data).then(res=>{
+      this.getUserListData();
+    })
+  }
+
   componentWillMount(){
 
   }
@@ -213,6 +226,13 @@ class UserManageList extends Component{
 
         <CTable ref='userManageList' loading={this.state.loading} columns={this.state.columns} dataSource={this.state.dataSource} page={this.state.page} onTableChange={this.onTableChange}>
           <div
+            slot='isActive'
+            render={(text, record, index) => (
+              <div className='isActive'>
+                <CSwitch value={record.isActive} onChange={(value) => this.editActiveChange(value, record)} />
+              </div>
+            )} />
+          <div
             slot='operate'
             render={(text, record, index) => (
               <div className='operate'>
@@ -220,7 +240,7 @@ class UserManageList extends Component{
                 <CButton type='text' authId='userManageListEdit' onClick={() => this.editHandler(record)}>编辑</CButton>
                 <CButton type='text' authId='userManageListDelete' onClick={() => this.delHandler(record)}>删除</CButton>
               </div>
-            )}></div>
+            )} />
         </CTable>
       </div>
     )

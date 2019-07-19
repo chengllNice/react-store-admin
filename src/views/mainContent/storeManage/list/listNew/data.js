@@ -43,7 +43,7 @@ export const storeManageListNewData = [
         id: 'address',
         name: '店铺地址',
         placeholder: '请输入店铺地址',
-        type: 'input',
+        type: 'select',
         checkType: 'required',
         newDisabled: false,
         editDisabled: false,
@@ -51,7 +51,11 @@ export const storeManageListNewData = [
         editShow: true,
         value: '',
         options: [],
-        expand: {},
+        expand: {
+          showSearch: true,
+          filterOption: false,//不触发options过滤，做手动远程过滤
+          defaultActiveFirstOption: false,//默认不选中options第一个，防止不选中失去焦点时的闪现问题
+        },
         jpath: 'address'
       },
       {

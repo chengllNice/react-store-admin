@@ -1,8 +1,8 @@
 
 export const menuList = [
   {
-    id: 'accountInfo',
-    path: '/accountInfo',
+    id: 'personal',
+    path: '/personal',
     name: '个人信息',
   },
   {

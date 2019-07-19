@@ -11,13 +11,17 @@ import userManageRouter from './userManageRouter'
 import storeManageRouter from './storeManageRouter'
 import authManageRouter from './authManageRouter'
 import goodsManageRouter from './goodsManageRouter'
+import historyRecordRouter from './historyRecordRouter'
+import personalRouter from './personalRouter'
 
 const routers = [
   homeRouter,
   userManageRouter,
   storeManageRouter,
   authManageRouter,
-  goodsManageRouter
+  goodsManageRouter,
+  historyRecordRouter,
+  personalRouter
 ];
 
 const renderRoutes = (routers) => {

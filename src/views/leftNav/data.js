@@ -161,22 +161,64 @@ export const leftNavData = [
     ]
   },
   {
-    id: 'history',
-    path: '/history',
+    id: 'historyRecord',
+    path: '/historyRecord',
     name: '历史记录',
     iconType: 'fa',
     icon: 'fa-cube',
     query: {},
     children: [
       {
-        id: 'historyDelUser',
-        path: '/history/delUser',
+        id: 'historyRecordDeleteUserList',
+        path: '/historyRecord/deleteUser',
         name: '删除用户历史',
         iconType: 'antd',
         icon: '',
         query: {},
       },
+      {
+        id: 'historyRecordDeleteAdminUserList',
+        path: '/historyRecord/deleteAdminUser',
+        name: '删除系统用户历史',
+        iconType: 'antd',
+        icon: '',
+        query: {},
+      },
     ]
+  },
+  {
+    id: 'orderManage',
+    path: '/orderManage',
+    name: '订单管理',
+    iconType: 'fa',
+    icon: 'fa-cube',
+    query: {},
+    children: [
+      {
+        id: 'orderManageList',
+        path: '/orderManage/list',
+        name: '订单列表',
+        iconType: 'antd',
+        icon: '',
+        query: {},
+      },
+      {
+        id: 'orderManage',
+        path: '/orderManage/proList',
+        name: '问题订单',
+        iconType: 'antd',
+        icon: '',
+        query: {},
+      },
+    ]
+  },
+  {
+    id: 'message',
+    path: '/message',
+    name: '消息中心',
+    iconType: 'fa',
+    icon: 'fa-envelope-o',
+    query: {},
   },
   {
     id: 'systemSet',

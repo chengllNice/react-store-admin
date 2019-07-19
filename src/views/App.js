@@ -8,7 +8,7 @@ import { compose} from 'redux'
 import './App.scss'
 import Header from './header'
 import LeftNav from './leftNav'
-import { getStorage} from "@/utils";
+import { getStorage, setStorage} from "@/utils";
 import { LocaleProvider} from 'antd'
 import zhCN from 'antd/es/locale-provider/zh_CN';
 import moment from 'moment'
@@ -20,10 +20,9 @@ moment.locale('zh-cn');
 
 class App extends Component{
 
-  // routerWillLeave(nextLocation) {
-  //   console.log('leval')
-  //   return true
-  // }
+  state = {
+    theme: null,//主题
+  };
 
   // 在全局监听数据变化
   watchRouterChange(){
@@ -40,20 +39,35 @@ class App extends Component{
     if(!userInfo && location.pathname !== '/login'){
       this.props.history.push({
         pathname: '/login'
-      })
+      });
     }
     this.props.setUserInfo(userInfo);
+  }
+
+  // // 切换主题文件
+  setThemeFile(currentTheme){
+    if(!getStorage('theme')){
+      setStorage('theme', currentTheme);
+    }
+    this.setState({
+      theme: getStorage('theme')
+    });
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.setThemeFile(nextProps.currentTheme);
   }
 
   componentDidMount(){
     this.watchRouterChange();
     this.userIsLogin(this.props.history.location);
+    this.setThemeFile(this.props.currentTheme);
   }
 
   render(){
     return (
       <LocaleProvider locale={zhCN}>
-        <div className='app'>
+        <div className='app' data-theme={this.state.theme}>
           <Header></Header>
 
           <div className='flex app-content'>
@@ -73,6 +87,7 @@ class App extends Component{
 const mapStateToProps = (state) => {
   return {
     userInfo: state.Common.userInfo,
+    currentTheme: state.Common.currentTheme
   }
 };
 

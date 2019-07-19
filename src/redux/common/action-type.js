@@ -9,3 +9,5 @@ export const SETBREADCRUMB = 'SETBREADCRUMB';
 export const RELOAD = 'RELOAD';
 // 浏览器信息（宽度、高度等）
 export const WINDOWINFO = 'WINDOWINFO';
+// 切换主题
+export const CURRENTTHEME = 'CURRENTTHEME';

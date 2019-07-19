@@ -40,3 +40,11 @@ export const setUserInfo = (value)=>{
     value
   }
 };
+
+// 切换主题
+export const setCurrentTheme = (value)=>{
+  return {
+    type: Common.CURRENTTHEME,
+    value
+  }
+};

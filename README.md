@@ -1,68 +1,147 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+这个项目基于`react + antdesign + react-router + redux + axios + mock + AMap + echarts`等技术栈完成。初学react的小学渣，如果有哪些地方写的有问题，希望可以多多指点，也欢迎大家能多多`star`一下，支持一下，花费业余时间开发不容易，联系方式`15201512159@163.com`，谢谢！！！
 
-In the project directory, you can run:
+## 项目介绍
 
-### `npm start`
+注意：现在项目并没有全部完成，部分功能待开发
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+项目运行
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```javascript
+git clone https://github.com/chengllNice/react-store-admin.git
 
-### `npm test`
+cd react-store-admin
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+cnpm i
 
-### `npm run build`
+npm start
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### 首先进入登录界面
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`默认可以登录的账号`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+说明：现在账号没有分权限，进入看到的内容都是一样的，以后可能会加上权限的限制
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+账号：root，密码：123456
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+账号：bussiness，密码：123456
 
-## Learn More
+![登录](./src/assets/images/projectShot/login.jpg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 登录之后进入首页
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+右上角可以进入主题皮肤的切换，现在支持4中皮肤
 
-### Code Splitting
+当前页展示所有店铺位置信息,可以点击查看每个店铺的基本信息和进入详情页。支持按店铺名称搜索
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+![首页](./src/assets/images/projectShot/home.jpg)
 
-### Analyzing the Bundle Size
+### 用户管理--商家用户列表
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+支持按照用户角色，创建时间，用户名，邮箱，手机号进行筛选
 
-### Making a Progressive Web App
+![用户管理](./src/assets/images/projectShot/userManage1.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+![用户管理](./src/assets/images/projectShot/userManage3.jpg)
 
-### Advanced Configuration
+### 用户管理--商家用户列表--新增
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+表单验证是由自己独自写的，可能有地方写的有问题，如果发现问题，希望可以联系我(联系方式见上边)！！
 
-### Deployment
+![用户管理](./src/assets/images/projectShot/userManage2.jpg)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### 用户管理--商家用户列表--详情
 
-### `npm run build` fails to minify
+由于头像是在线的图片，可能会加载失败
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![用户管理](./src/assets/images/projectShot/userManage4.png)
+
+### 用户管理--系统用户列表
+
+![用户管理](./src/assets/images/projectShot/userManage5.jpg)
+
+### 权限管理--角色列表
+
+![用户管理](./src/assets/images/projectShot/roleManage1.jpg)
+
+### 店铺管理--统计分析
+
+![用户管理](./src/assets/images/projectShot/storeManage1.jpg)
+
+### 店铺管理--店铺列表
+
+![用户管理](./src/assets/images/projectShot/storeManage2.jpg)
+
+### 商品管理--商品列表
+
+![用户管理](./src/assets/images/projectShot/goodsManage1.jpg)
+
+### 历史记录--删除用户历史
+
+在此可以恢复已删除的用户或者永久删除该用户
+
+![用户管理](./src/assets/images/projectShot/historyRecord1.jpg)
+
+### 默认的主题皮肤
+
+![用户管理](./src/assets/images/projectShot/theme1.jpg)
+
+### 订单管理、消息中心、系统设置暂时还没有完成
+
+
+## 项目目录简介
+
+主要目录介绍：
+
+    config                  ----webpack配置目录
+    public
+    scripts                 ----命令
+    src                     ----源码目录
+        ----assets          ----静态文件目录
+            ----css         ----全局css目录
+            ----images      ----图片
+        ----auth            ----权限配置目录（暂时没做权限配置）
+        ----components      ----公用组件
+        ----config          ----公用配置（不是webpack的配置，而是项目的全局配置）
+        ----mock            ----mock数据
+        ----redux           ----redux目录
+        ----routers         ----路由目录
+        ----servers         ----接口请求
+        ----utils           ----工具方法
+        ----views           ----各模块代码主目录
+        ----index.js        ----项目入口文件
+        
+
+###   src--config目录说明
+
+name:配置项目名称
+
+leftNavdefaultOpenAll: 是否默认展开所有侧导航一级菜单。  true展开  false不展开。如果配置为false,会展开当前路由所在的一级菜单，其他全部默认关闭。
+
+CollapseModel：侧导航切换的模式。true为手风琴模式
+
+collapsedDefaultOpen：默认是否展开侧导航。true展开  false收起
+
+mock：是否使用mock数据。如果是生产环境此项配置不生效(暂无真实接口支持，只能用mock数据接口)
+
+```javascript
+
+module.exports = {
+  name: 'X-Admin',
+  leftNavdefaultOpenAll: false,
+  CollapseModel: true,
+  collapsedDefaultOpen: false,
+  mock: true, 
+};
+
+```
+
+###   src--assets--css--themeFn.scss文件说明
+
+主题皮肤设置
+
+## 写在最后，希望大家可以支持一下star,谢谢！！！

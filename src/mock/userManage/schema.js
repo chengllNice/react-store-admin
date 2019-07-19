@@ -1,6 +1,7 @@
 import Mock from 'mockjs'
 import * as commonData from '../commonData'
 import commonSchema from '../commonSchema'
+import {randomLongLat} from "../commonUtils";
 
 // const Random = Mock.Random;
 
@@ -19,8 +20,15 @@ const busniessList = {
       'avatar|1': commonData.data.images.avatar,//头像
       'email': '@EMAIL',//邮箱
       'address': '@COUNTY(true)',//住址
+      'latlong': function () {
+        return randomLongLat([87.9345703125,118.5644531250], [21.8614987344,42.0329743324]);
+      },//经纬度
       'storeNum|0-10': 0,//店铺数量
+      'isDelete': '@boolean',//是否是删除的用户
+      'isActive': '@boolean',//激活停用
+      'deleteReason': '已到期',//删除原因
       'createTime': '@datetime',//创建时间
+      'deleteTime': '@datetime',//删除时间
     }
   ]
 };
@@ -37,17 +45,35 @@ const adminList = {
       'phone': /^1[3456789]\d{9}$/,//手机号
       'avatar|1': commonData.data.images.avatar,//头像
       'email': '@EMAIL',//邮箱
+      'isDelete': '@boolean',//是否是删除的用户
+      'isActive': '@boolean',//激活停用
+      'deleteReason': '已离职',//删除原因
       'createTime': '@datetime',//创建时间
+      'deleteTime': '@datetime',//删除时间
     }
   ]
 };
 
-let userListBusniess = Mock.mock(busniessList);
-let userListAdmin = Mock.mock(adminList);
+let userListBusniessAll = Mock.mock(busniessList);
+let userListAdminAll = Mock.mock(adminList);
+// let userListBusniess = userListBusniessAll.list.filter(item=>{
+//   return !item.isDelete
+// });
+// let userListAdmin = userListAdminAll.list.filter(item=>{
+//   return !item.isDelete
+// });
+// let userListBusniessDelete = userListBusniessAll.list.filter(item=>{
+//   return item.isDelete
+// });
+// let userListAdminDelete = userListAdminAll.list.filter(item=>{
+//   return item.isDelete
+// });
 
 export default {
-  userListBusniess: userListBusniess.list.concat([commonData.data.userList[1]]),
-  userListAdmin: userListAdmin.list.concat([commonData.data.userList[0]]),
+  userListBusniess: userListBusniessAll.list.concat([commonData.data.userList[1]]),
+  userListAdmin: userListAdminAll.list.concat([commonData.data.userList[0]]),
+  // userListBusniessDelete: userListBusniessDelete,
+  // userListAdminDelete: userListAdminDelete,
 }
 
 

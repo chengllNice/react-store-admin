@@ -2,6 +2,7 @@ import * as Common from './action-type'
 import config from '@/config'
 
 let defaultState = {
+  currentTheme: 'default',//当前主题
   collapsed: config.collapsedDefaultOpen || true,//左侧导航状态
   breadcrumbData: [],//面包屑导航数据
   reload: false,
@@ -26,6 +27,8 @@ let CommonReducer = (state = defaultState, action) => {
       return {...state, ...{windowInfo: action.value}};
     case Common.USERINFO:
       return {...state, ...{userInfo: action.value}};
+    case Common.CURRENTTHEME:
+      return {...state, ...{currentTheme: action.value}};
     default:
       return state;
   }

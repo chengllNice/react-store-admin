@@ -1,12 +1,18 @@
 @import "@/assets/css/var.scss";
+@import "@/assets/css/themeFn.scss";
 
 .left-nav{
   width: 200px;
   height: 100%;
   overflow: auto;
   background-color: $left-nav-background-color;
+  //background-color: $left-nav-background-color;
   padding: 10px 0;
   transition: all 0.5s;
+
+  @include themify(){
+    background-color: themed('left-nav-background-color');
+  }
 
   &.left-nav-open{
 
@@ -50,6 +56,11 @@
     .left-nav-item-children{
       transition: all 0.5s;
       overflow: hidden;
+      //#dde9f3
+      background-color: $left-nav-children-background-color;
+      @include themify(){
+        background-color: themed('left-nav-children-background-color');
+      }
       .left-nav-item-children-item{
         .item-link{
           width: 100%;
@@ -67,17 +78,30 @@
       font-size: 12px;
       color: $text-color-label;
       cursor: pointer;
+      @include themify(){
+        color: themed('left-nav-font-color');
+      }
       &:hover{
         border-left: 4px solid $left-nav-active-border-color;
         background: $left-nav-active-background-color;
         color: $text-color-white;
+
+        @include themify(){
+          background: themed('left-nav-active-background-color');
+          border-color: themed('left-nav-active-border-color');
+        }
       }
     }
 
     .selected{
       border-left: 4px solid $left-nav-active-border-color;
       background: $left-nav-active-background-color;
-      color: $text-color-white;
+      color: $text-color-white !important;
+
+      @include themify(){
+        background: themed('left-nav-active-background-color');
+        border-color: themed('left-nav-active-border-color');
+      }
     }
   }
 
