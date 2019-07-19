@@ -1,0 +1,83 @@
+
+/*DEFAULT THEME*/
+$default-theme-left-nav-background-color: #e6f3fd;
+$default-theme-left-nav-children-background-color: #dde9f3;
+$default-theme-left-nav-active-background-color: linear-gradient(to left,rgba(30, 144, 255, 1), rgba(0, 206, 209, 1)) !important;
+$default-theme-left-nav-active-border-color: rgba(51, 51, 51, 0.73) !important;
+$default-theme-left-nav-font-color: #333333;
+$default-theme-header-background-color: linear-gradient(to left,rgba(30, 144, 255, 1), rgba(0, 206, 209, 1)) !important;
+//#344058
+$deongaree-theme-left-nav-background-color: #344058;
+$deongaree-theme-left-nav-children-background-color: #313b4f;
+$deongaree-theme-left-nav-active-background-color: #252d3d !important;
+$deongaree-theme-left-nav-active-border-color: #6f7b80 !important;
+$deongaree-theme-left-nav-font-color: rgba(181, 181, 181, 1) !important;
+$deongaree-theme-header-background-color: #344058 !important;
+//#009688
+$green-theme-left-nav-background-color: #009688;
+$green-theme-left-nav-children-background-color: #02766c;
+$green-theme-left-nav-active-background-color: #02b7a5 !important;
+$green-theme-left-nav-active-border-color: #2bf8e5 !important;
+$green-theme-left-nav-font-color: #ffffff !important;
+$green-theme-header-background-color: #009688 !important;
+//#cc0000
+$red-theme-left-nav-background-color: #ffffff;
+$red-theme-left-nav-children-background-color: #ffffff;
+$red-theme-left-nav-active-background-color: rgba(204, 0, 0, 0.77) !important;
+$red-theme-left-nav-active-border-color: rgb(131, 3, 3) !important;
+$red-theme-left-nav-font-color: #333333 !important;
+$red-theme-header-background-color: #cc0000 !important;
+
+
+/*THEME MAP*/
+$themes: (
+        default: (
+                left-nav-background-color: $default-theme-left-nav-background-color,
+                left-nav-children-background-color: $default-theme-left-nav-children-background-color,
+                left-nav-font-color: $default-theme-left-nav-font-color,
+                header-background-color: $default-theme-header-background-color,
+                left-nav-active-background-color: $default-theme-left-nav-active-background-color,
+                left-nav-active-border-color: $default-theme-left-nav-active-border-color,
+        ),
+        deongaree: (
+                left-nav-background-color: $deongaree-theme-left-nav-background-color,
+                left-nav-children-background-color: $deongaree-theme-left-nav-children-background-color,
+                left-nav-font-color: $deongaree-theme-left-nav-font-color,
+                header-background-color: $deongaree-theme-header-background-color,
+                left-nav-active-background-color: $deongaree-theme-left-nav-active-background-color,
+                left-nav-active-border-color: $deongaree-theme-left-nav-active-border-color,
+        ),
+        green: (
+                left-nav-background-color: $green-theme-left-nav-background-color,
+                left-nav-children-background-color: $green-theme-left-nav-children-background-color,
+                left-nav-font-color: $green-theme-left-nav-font-color,
+                header-background-color: $green-theme-header-background-color,
+                left-nav-active-background-color: $green-theme-left-nav-active-background-color,
+                left-nav-active-border-color: $green-theme-left-nav-active-border-color,
+        ),
+        red: (
+                left-nav-background-color: $red-theme-left-nav-background-color,
+                left-nav-children-background-color: $red-theme-left-nav-children-background-color,
+                left-nav-font-color: $red-theme-left-nav-font-color,
+                header-background-color: $red-theme-header-background-color,
+                left-nav-active-background-color: $red-theme-left-nav-active-background-color,
+                left-nav-active-border-color: $red-theme-left-nav-active-border-color,
+        ),
+);
+
+@mixin themify(){
+  @each $theme-name, $map in $themes{
+    [data-theme = '#{$theme-name}'] & {
+      $theme-map: () !global;
+      @each $key, $value in $map {
+        $theme-map: map-merge($theme-map, ($key: $value))!global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key){
+  @return map-get($theme-map, $key)
+}

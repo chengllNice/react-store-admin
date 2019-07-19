@@ -48,7 +48,13 @@ export const filterByObj = (data, filterObj, filterType, type) => {
       let arr = Object.keys(filterObj).map(key=>{
         let _value = getObjectValue(item, key);
         if(type === 'eq'){
+          if(_.isArray(filterObj[key])){
+            return filterObj[key].includes(_value.toString())
+          }
           return _value.toString().toLowerCase() === filterObj[key].toString().toLowerCase()
+        }
+        if(_.isArray(filterObj[key])){
+          return filterObj[key].includes(_value.toString())
         }
         return _value.toString().toLowerCase().includes(filterObj[key].toString().toLowerCase())
       });
@@ -144,6 +150,7 @@ export const deleteObjKeyNull = (obj) => {
   });
   return obj;
 };
+
 
 /**
  * 随机一个指定范围内的经纬度

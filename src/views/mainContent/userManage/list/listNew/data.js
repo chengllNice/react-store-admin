@@ -78,7 +78,7 @@ export const userManageListNewData = [
         id: 'address',
         name: '详细住址',
         placeholder: '请输入详细住址',
-        type: 'input',
+        type: 'select',
         checkType: 'required',
         newDisabled: false,
         editDisabled: false,
@@ -86,7 +86,11 @@ export const userManageListNewData = [
         editShow: true,
         value: '',
         options: [],
-        expand: {},
+        expand: {
+          showSearch: true,
+          filterOption: false,//不触发options过滤，做手动远程过滤
+          defaultActiveFirstOption: false,//默认不选中options第一个，防止不选中失去焦点时的闪现问题
+        },
         jpath: 'address'
       },
       {

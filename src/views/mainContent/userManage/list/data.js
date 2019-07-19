@@ -67,6 +67,13 @@ export const tableData = {
       filterDate: 'range',
     },
     {
+      key: 'isActive',
+      dataIndex: 'isActive',
+      title: '激活停用',
+      fixed: 'right',
+      slot: 'isActive',
+    },
+    {
       key: 'operate',
       dataIndex: 'operate',
       title: '操作',

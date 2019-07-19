@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect} from 'react-redux'
 import CInput from '@/components/CForm/CInput'
 import CBaseComponent from '@/components/CBaseComponent'
+import InfoTitle from '@/components/CDetailInfo/detailInfoTitle'
 import BaseMap from './baseMap'
 import './index.scss'
 
@@ -52,7 +53,6 @@ class Home extends Component{
 
   // 计算地图高度
   computedMapHeight(){
-    console.log('rererere')
     let screenHeight = this.props.windowInfo && this.props.windowInfo.screenHeight;
     let mapHeight = screenHeight - 200;
     this.setState({
@@ -79,12 +79,14 @@ class Home extends Component{
   render(){
     return (
       <div className='home'>
-        <div className='flex home-filter'>
-          <CInput value={this.state.searchData.value}
-                  className='search-input'
-                  type='search'
-                  placeholder={this.state.searchData.placeholder} onEnter={this.searchHandler} />
-        </div>
+        <InfoTitle title='店铺位置信息'>
+          <div className='flex home-filter'>
+            <CInput value={this.state.searchData.value}
+                    className='search-input'
+                    type='search'
+                    placeholder={this.state.searchData.placeholder} onEnter={this.searchHandler} />
+          </div>
+        </InfoTitle>
         <BaseMap className='home-base-map' height={this.state.mapHeight} data={this.state.data}/>
       </div>
     )

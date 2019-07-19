@@ -1,4 +1,6 @@
 
+@import "./themeFn.scss";
+
 
 
 /*BACKGDROUND*/
@@ -49,12 +51,15 @@ $button-size-default-font-size: 12px;
 $button-size-larger-font-size: 13px;
 
 
-
 /*HEAD STYLE*/
-$header-background: linear-gradient(to left,rgba(30, 144, 255, 1), rgba(0, 206, 209, 1)) !important;
+$header-background: $default-theme-header-background-color;
 $header-height: 45px;
 
 /*LEFTNAV STYLE*/
-$left-nav-background-color: #e6f3fd;
-$left-nav-active-background-color: linear-gradient(to left,rgba(30, 144, 255, 1), rgba(0, 206, 209, 1)) !important;
-$left-nav-active-border-color: rgba(51, 51, 51, 0.73);
+$left-nav-background-color: $default-theme-left-nav-background-color;
+$left-nav-children-background-color: $default-theme-left-nav-children-background-color;
+$left-nav-active-background-color: $default-theme-left-nav-active-background-color;
+$left-nav-active-border-color: $default-theme-left-nav-active-border-color;
+
+
+

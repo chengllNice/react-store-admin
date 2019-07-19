@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import CPageNew from '@/components/CPageNew'
 import CBaseComponent from '@/components/CBaseComponent'
 import { storeManageListNewData} from './data'
-import { getStoreCategoryList, getUserBusniessList} from "@/servers/commonApi";
+import { getStoreCategoryList, getUserBusniessList, getAMapKeywordsSearch} from "@/servers/commonApi";
 import { insertStoreList, detailStoreList, editStoreList} from "@/servers/storeManageApi";
 import {setPageNewItem, setPageNewValue, urlFormat} from "@/utils";
 import _ from 'lodash'
@@ -14,25 +14,38 @@ class StoreManageListNew extends Component{
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
-    this.onSearch = _.throttle(this.getUserBusniessListData, 1000).bind(this);
+    this.onSearch = this.onSearch.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.getStoreCategoryListData = this.getStoreCategoryListData.bind(this);
-    this.getUserBusniessListData = this.getUserBusniessListData.bind(this);
+    this.getUserBusniessListData = _.debounce(this.getUserBusniessListData, 100).bind(this);
+    this.getAMapKeywordsSearchData = _.debounce(this.getAMapKeywordsSearchData, 100).bind(this);
   }
 
 
   state = {
-    data: storeManageListNewData
+    data: storeManageListNewData,
+    addressInfo: null,
   }
 
   onChange(data){
+    let currentOption = null;
+    if(data.data.id === 'address'){
+      currentOption = data.data.options.filter(item=>{
+        return item.value === data.value;
+      });
+    }
     this.setState({
-      data: setPageNewItem(this.state.data, data.data.id, 'value', data.value)
+      data: setPageNewItem(this.state.data, data.data.id, 'value', data.value),
+      addressInfo: currentOption && currentOption.length ? currentOption[0] : null
     })
   }
 
-  onSearch(data){
-
+  onSearch(data, value){
+    if(data.data.id === 'address'){
+      this.getAMapKeywordsSearchData(data.value);
+    }else if(data.data.id === 'user'){
+      this.getUserBusniessListData(data);
+    }
   }
 
 
@@ -54,7 +67,10 @@ class StoreManageListNew extends Component{
     }else{
       method = insertStoreList
     }
-    console.log(data,'datadatadatadata')
+
+    data.data.address = this.state.addressInfo ? this.state.addressInfo.name : '';
+    data.data.latlong = this.state.addressInfo ? this.state.addressInfo.location : [0,0];
+
     method(data.data).then(res=>{
       this.props.history.goBack();
     }).catch(err=>{
@@ -117,6 +133,28 @@ class StoreManageListNew extends Component{
       })
     }).catch(err=>{
 
+    })
+  }
+
+  // 获取高德地图地址
+  getAMapKeywordsSearchData(value){
+    let data = {
+      keywords: value || ''
+    };
+    getAMapKeywordsSearch(data).then(res=>{
+      let data = res.pois;
+      let options = [];
+      data.forEach(item=>{
+        let location = item.location.split(',').reverse();
+        options.push({
+          value: item.id.toString(),
+          name: item.name,
+          location: location
+        })
+      });
+      this.setState({
+        data: setPageNewItem(this.state.data, 'address', 'options', options)
+      })
     })
   }
 

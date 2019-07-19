@@ -6,11 +6,14 @@ import CBaseComponent from '@/components/CBaseComponent'
 import config from '@/config'
 import { postLogin} from "@/servers/commonApi";
 import { setStorage} from "@/utils";
+import { withRouter} from 'react-router-dom'
+import { setUserInfo} from "../../redux/common/action";
+import { connect} from 'react-redux'
+import { bindActionCreators, compose} from 'redux'
 import './index.scss'
 
 @CBaseComponent
 class Login extends Component{
-
   constructor(props) {
     super(props);
     this.login = this.login.bind(this);
@@ -38,11 +41,16 @@ class Login extends Component{
       ...this.state
     };
     postLogin(postData).then(res=>{
-      let userInfo = res.data;
-      setStorage('userInfo', userInfo);
-      this.props.history.push({
-        pathname: '/home',
-      });
+      if(res.status === 200){
+        let userInfo = res.data;
+        setStorage('userInfo', userInfo);
+        this.props.setUserInfo(userInfo);
+        this.props.history.push({
+          pathname: '/home',
+        });
+      }else{
+        message.error(res.errmsg);
+      }
     })
   }
 
@@ -56,7 +64,7 @@ class Login extends Component{
         <div className='flex login-header'>
           <div className='login-header-logo'>{config.name}</div>
           <div className='login-header-href'>
-            <a target='_blank' href="https://github.com/chengllNice">GitHub</a>
+            <a target='_blank' href="https://github.com/chengllNice" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
         <div className='flex login-content'>
@@ -78,4 +86,17 @@ class Login extends Component{
   }
 }
 
-export default Login
+
+const mapStateToProps = (state) => {
+  return {
+    userInfo: state.Common.userInfo,
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUserInfo: bindActionCreators(setUserInfo, dispatch),
+  }
+};
+
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(Login);

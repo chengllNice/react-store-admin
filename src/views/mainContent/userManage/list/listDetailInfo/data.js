@@ -68,6 +68,13 @@ export const detailInfoData = [
         jpath: 'address',
       },
       {
+        id: 'latlong',
+        name: '经纬度',
+        value: '',
+        type: 'input',
+        jpath: 'latlong',
+      },
+      {
         id: 'storeNum',
         name: '店铺数量',
         value: '',

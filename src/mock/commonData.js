@@ -269,6 +269,7 @@ export const data = {
       'id': 'root',
       'name': 'root',//真实用户姓名
       'password': '123456',//登录密码
+      'address': '北京市海淀区',
       'sex': {
         id: '1',
         name: '男'
@@ -285,12 +286,15 @@ export const data = {
         url: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3768890033,68770272&fm=27&gp=0.jpg'
       },//头像
       'email': '13200000000@163.com',//邮箱
+      'isDelete': false,
+      'isActive': true,
       'createTime': '2019-02-13 00:00:00',//创建时间
     },
     {
       'id': 'bussiness',
       'name': 'bussiness',//真实用户姓名
       'password': '123456',//登录密码
+      'address': '北京市海淀区',
       'sex': {
         id: '1',
         name: '男'
@@ -308,6 +312,8 @@ export const data = {
         url: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=311097710,965735535&fm=27&gp=0.jpg'
       },//头像
       'email': '13200000001@163.com',//邮箱
+      'isDelete': false,
+      'isActive': true,
       'createTime': '2019-02-13 00:00:00',//创建时间
     }
   ]

@@ -29,8 +29,8 @@ class UserManageListDetailInfo extends Component{
   getUserDetailData(){
     let id = urlFormat(this.props.history.location.search).query.id;
     detailUserList({id}).then(res=>{
-      console.log(res,'res')
       let userInfo = res.data.userInfo;
+      userInfo.latlong = userInfo.latlong.join(',');//经纬度分割成字符串
       let storeList = res.data.storeList;
       let data = setPageNewValue(this.state.data, userInfo);
       this.setState({
