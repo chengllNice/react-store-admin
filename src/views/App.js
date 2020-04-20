@@ -9,7 +9,7 @@ import './App.scss'
 import Header from './header'
 import LeftNav from './leftNav'
 import { getStorage, setStorage} from "@/utils";
-import { LocaleProvider} from 'antd'
+import { LocaleProvider, ConfigProvider} from 'antd'
 import zhCN from 'antd/es/locale-provider/zh_CN';
 import moment from 'moment'
 import 'moment/locale/zh-cn';
@@ -59,6 +59,7 @@ class App extends Component{
   }
 
   componentDidMount(){
+    console.log('====33')
     this.watchRouterChange();
     this.userIsLogin(this.props.history.location);
     this.setThemeFile(this.props.currentTheme);
@@ -66,7 +67,7 @@ class App extends Component{
 
   render(){
     return (
-      <LocaleProvider locale={zhCN}>
+      <ConfigProvider locale={zhCN}>
         <div className='app' data-theme={this.state.theme}>
           <Header></Header>
 
@@ -78,7 +79,7 @@ class App extends Component{
             </div>
           </div>
         </div>
-      </LocaleProvider>
+      </ConfigProvider>
     )
   }
 }

@@ -25,11 +25,22 @@ const routers = [
 ];
 
 const renderRoutes = (routers) => {
-  return routers.map((item, index)=>
-    <Route path={item.path} component={item.component} exact={item.exact} key={index}>
-      {item.children && renderRoutes(item.children)}
-    </Route>)
+  return routers.map((item, index)=>{
+    if(item.children){
+      let Com = item.component;
+      return (
+          <Com key={index}>
+            {renderRoutes(item.children)}
+          </Com>
+      )
+    }else{
+      return (
+          <Route path={item.path} component={item.component} exact={item.exact} key={index} />
+      )
+    }
+  })
 };
+/*<Route path={item.path} component={item.component} exact={item.exact} key={index}>{item.children && renderRoutes(item.children)}</Route>)*/
 
 
 export default class RouteConfig extends Component{
@@ -38,14 +49,19 @@ export default class RouteConfig extends Component{
       <HashRouter>
         <Switch>
           <Route exact path='/login' component={Login} />
-          <Route path='/' render={()=>
-            <App>
-              <MainContent>
-                {renderRoutes(routers)}
-              </MainContent>
-            </App>
-          }>
-          </Route>
+          {/*<Route path='/' render={()=>*/}
+          {/*  <App>*/}
+          {/*    <MainContent>*/}
+          {/*      {renderRoutes(routers)}*/}
+          {/*    </MainContent>*/}
+          {/*  </App>*/}
+          {/*}>*/}
+          {/*</Route>*/}
+          <App>
+            <MainContent>
+              {renderRoutes(routers)}
+            </MainContent>
+          </App>
         </Switch>
       </HashRouter>
     )
