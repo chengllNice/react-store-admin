@@ -86,7 +86,7 @@ export const storeManageListNewData = [
         value: '',
         options: [],
         expand: {
-          autosize: {minRows: 3, maxRows: 6}
+          autoSize: {minRows: 3, maxRows: 6}
         },
         jpath: 'description'
       },

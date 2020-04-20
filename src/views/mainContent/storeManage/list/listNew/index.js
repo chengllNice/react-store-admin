@@ -82,8 +82,7 @@ class StoreManageListNew extends Component{
   getStoreDetailData(){
     let id = urlFormat(this.props.history.location.search).query.id;
     detailStoreList({id}).then(res=>{
-      console.log(res,'resresresres')
-      this.getUserBusniessListData(res.data.user.id);
+      this.getUserBusniessListData(res.data.userInfo.user.id);
       this.setState({
         data: setPageNewValue(this.state.data, res.data.userInfo)
       })
