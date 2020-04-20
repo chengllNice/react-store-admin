@@ -34,6 +34,7 @@ class UserManageAdminList extends Component{
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('00999dd11')
     // reload时重新加载数据
     this.getUserAdminListData();
     this.getUserAdminRoleListData();
@@ -185,10 +186,11 @@ class UserManageAdminList extends Component{
   }
 
   componentWillMount(){
-
+    console.log('00999dd')
   }
 
   componentDidMount(){
+    console.log('00999dd33')
     this.getUserAdminListData();
     this.getUserAdminRoleListData();
   }
