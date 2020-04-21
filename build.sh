@@ -21,28 +21,22 @@ if [ $1 == "dev" ]; then
     git push origin dev
     echo "git autopush end..."
   fi
-elif [ $1 == "online" ]
-then
+elif [ $1 == "online" ]; then
   if [ $br == 'dev' ]; then
+    echo "\033[41;36m pleace checkout branch to master \033[0m"
+  elif [ $br == 'master' ]; then
+    npm run build
+    echo "git autopush start..."
     git add .
-    git commit -m ${onlineDevCommit}
-    git push origin dev
-    git checkout master
-    git merge dev
-    echo "git auto checkout master and merge dev..."
+    git commit -m $2
+    git push origin master
+    echo "git autopush end..."
+    echo "git autopush start chengllNice.github.io..."
+    npm run auto:push
+    echo "git autopush end chengllNice.github.io..."
   fi
-  npm run build
-  echo "git autopush start..."
-  git add .
-  git commit -m $2
-  # git checkout master
-  git push origin master
-  echo "git autopush end..."
-  echo "git autopush start chengllNice.github.io..."
-  npm run auto:push
-  echo "git autopush end chengllNice.github.io..."
 else
-    echo "environment is invalid"
+  echo "\033[41;36m environment is invalid \033[0m"
 fi
 
 echo "end react-store-admin build ==============="
