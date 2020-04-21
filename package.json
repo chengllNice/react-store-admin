@@ -61,7 +61,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "auto:online": "sh build.sh 'online' $1",
+    "auto:dev": "sh build.sh 'dev' $1"
   },
   "eslintConfig": {
     "extends": "react-app"
