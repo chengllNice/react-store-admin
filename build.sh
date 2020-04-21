@@ -44,4 +44,4 @@ else
     echo "environment is invalid"
 fi
 
-echo "end build ==============="
+echo "end react-store-admin build ==============="
