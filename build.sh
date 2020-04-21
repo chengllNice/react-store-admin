@@ -36,7 +36,7 @@ elif [ $1 == "push" ]; then
   echo "git autopush start..."
   git add .
   git commit -m $2
-  git push
+  git push origin $br
   echo "git autopush end..."
 else
   echo "\033[41;36m environment is invalid \033[0m"
