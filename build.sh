@@ -13,7 +13,7 @@ echo "branch $br"
 
 if [ $1 == "dev" ]; then
   if [[ $br == 'master' ]]; then
-    echo -e "\033[41:36m pleace checkout branch to dev \033[0m"
+    echo "\033[41;36m pleace checkout branch to dev \033[0m"
   elif [[ $br == 'dev' ]]; then
     echo "git autopush start..."
     git add .
