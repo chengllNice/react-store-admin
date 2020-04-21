@@ -63,7 +63,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "auto:online": "sh build.sh 'online' $1",
-    "auto:dev": "sh build.sh 'dev' $1"
+    "auto:dev": "sh build.sh 'dev' $1",
+    "auto:push": "node build-file-push.js"
   },
   "eslintConfig": {
     "extends": "react-app"
