@@ -26,6 +26,7 @@ then
   if [ $br == 'dev' ]; then
     git add .
     git commit -m ${onlineDevCommit}
+    git push origin dev
     git checkout master
     git merge dev
     echo "git auto checkout master and merge dev..."
