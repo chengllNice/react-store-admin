@@ -62,9 +62,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "auto:online": "sh build.sh 'online'",
+    "auto:master": "sh build.sh 'master'",
     "auto:dev": "sh build.sh 'dev'",
-    "auto:push": "node build-file-push.js"
+    "auto:push": "sh build.sh 'push'"
   },
   "eslintConfig": {
     "extends": "react-app"

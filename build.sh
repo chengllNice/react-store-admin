@@ -3,9 +3,6 @@
 echo "build environment：$1";
 echo "commit ：$2";
 
-onlineDevCommit="commit dev and checkout master"
-devMasterCommit="commit master and checkout dev"
-
 branch=`git branch | grep "*"` # 获取分支名
 br=${branch:2} # 去除多余的*
 echo "branch $br"
@@ -21,7 +18,7 @@ if [ $1 == "dev" ]; then
     git push origin dev
     echo "git autopush end..."
   fi
-elif [ $1 == "online" ]; then
+elif [ $1 == "master" ]; then
   if [ $br == 'dev' ]; then
     echo "\033[41;36m pleace checkout branch to master \033[0m"
   elif [ $br == 'master' ]; then
@@ -35,6 +32,12 @@ elif [ $1 == "online" ]; then
     npm run auto:push
     echo "git autopush end chengllNice.github.io..."
   fi
+elif [ $1 == "push" ]; then
+  echo "git autopush start..."
+  git add .
+  git commit -m $2
+  git push origin $br
+  echo "git autopush end..."
 else
   echo "\033[41;36m environment is invalid \033[0m"
 fi
