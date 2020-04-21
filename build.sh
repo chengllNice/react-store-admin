@@ -12,7 +12,6 @@ echo "branch $br"
 
 
 if [ $1 == "dev" ]; then
-  echo "branch 123 $br"
   if [[ $br == 'master' ]]; then
     echo -e "\033[41:36m pleace checkout branch to dev \033[0m"
   elif [[ $br == 'dev' ]]; then
